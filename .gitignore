@@ -1,0 +1,20 @@
+.DS_Store
+
+# HamroBazar Playwright project artifacts
+HamroBazar- Playwright/node_modules/
+HamroBazar- Playwright/test-results/
+HamroBazar- Playwright/playwright-report/
+HamroBazar- Playwright/blob-report/
+HamroBazar- Playwright/playwright-report-firefox/
+HamroBazar- Playwright/test-results-firefox/
+HamroBazar- Playwright/playwright/.cache/
+HamroBazar- Playwright/bug-report/
+HamroBazar- Playwright/Week-3-Submission/
+HamroBazar- Playwright/Week-4-Submission/
+HamroBazar- Playwright/Week-6-Submission/
+HamroBazar- Playwright/Manual-Mini-Project-Submission/
+HamroBazar- Playwright/Hamro-World-Cup-Points-Regression-Report-*.docx
+HamroBazar- Playwright/week6-html-report-screenshot.png
+HamroBazar- Playwright/*.log
+HamroBazar- Playwright/.env
+HamroBazar- Playwright/.env.*

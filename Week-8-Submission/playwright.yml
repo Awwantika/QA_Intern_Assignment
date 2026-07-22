@@ -1,0 +1,74 @@
+name: Playwright QA
+
+on:
+  pull_request:
+  push:
+    branches:
+      - main
+      - master
+  workflow_dispatch:
+
+permissions:
+  contents: read
+
+concurrency:
+  group: playwright-${{ github.workflow }}-${{ github.ref }}
+  cancel-in-progress: true
+
+jobs:
+  e2e-tests:
+    runs-on: ubuntu-latest
+    timeout-minutes: 45
+    env:
+      CI: true
+      PROJECT_DIR: HamroBazar- Playwright
+    defaults:
+      run:
+        working-directory: HamroBazar- Playwright
+
+    steps:
+      - name: Checkout
+        uses: actions/checkout@v4
+
+      - name: Setup Node.js
+        uses: actions/setup-node@v4
+        with:
+          node-version: 20
+          cache: npm
+          cache-dependency-path: HamroBazar- Playwright/package-lock.json
+
+      - name: Install dependencies
+        run: npm ci
+
+      - name: Install Playwright browser
+        run: npx playwright install --with-deps chromium
+
+      - name: Run Playwright tests (stable worker config)
+        run: npx playwright test --workers=1
+
+      - name: Add test summary
+        if: always()
+        run: |
+          if [ -f test-results/report.json ]; then
+            node -e "const r=require('./test-results/report.json'); const s=r.stats||{}; const out=['## Playwright Result','',`- Passed: ${s.expected ?? 0}`,`- Failed: ${s.unexpected ?? 0}`,`- Flaky: ${s.flaky ?? 0}`,`- Skipped: ${s.skipped ?? 0}`,`- Duration(ms): ${Math.round(s.duration ?? 0)}`,'']; require('fs').appendFileSync(process.env.GITHUB_STEP_SUMMARY,out.join('\n'));"
+          else
+            echo '## Playwright Result' >> $GITHUB_STEP_SUMMARY
+            echo '' >> $GITHUB_STEP_SUMMARY
+            echo '- report.json not found' >> $GITHUB_STEP_SUMMARY
+          fi
+
+      - name: Upload Playwright HTML report
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: playwright-report
+          path: ${{ env.PROJECT_DIR }}/playwright-report/
+          retention-days: 14
+
+      - name: Upload Playwright test results
+        if: always()
+        uses: actions/upload-artifact@v4
+        with:
+          name: test-results
+          path: ${{ env.PROJECT_DIR }}/test-results/
+          retention-days: 14

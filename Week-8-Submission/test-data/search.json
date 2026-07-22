@@ -1,0 +1,11 @@
+{
+  "keywords": [
+    { "term": "laptop", "expectUrlPart": "search" },
+    { "term": "iphone", "expectUrlPart": "search" },
+    { "term": "bike", "expectUrlPart": "search" }
+  ],
+  "invalid": [
+    { "term": "", "note": "Empty search should not crash" },
+    { "term": "@#$", "note": "Special characters should remain stable" }
+  ]
+}

@@ -1,0 +1,2236 @@
+{
+  "config": {
+    "argv": [
+      "/usr/local/bin/node",
+      "/Users/mercantile/Downloads/HamroBazar- Playwright/node_modules/.bin/playwright",
+      "test",
+      "-c",
+      "playwright.firefox.config.js"
+    ],
+    "configFile": "/Users/mercantile/Downloads/HamroBazar- Playwright/playwright.firefox.config.js",
+    "rootDir": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests",
+    "failOnFlakyTests": false,
+    "forbidOnly": false,
+    "fullyParallel": true,
+    "globalSetup": null,
+    "globalTeardown": null,
+    "globalTimeout": 0,
+    "grep": {},
+    "grepInvert": null,
+    "maxFailures": 0,
+    "metadata": {
+      "actualWorkers": 2
+    },
+    "preserveOutput": "always",
+    "projects": [
+      {
+        "outputDir": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results",
+        "repeatEach": 1,
+        "retries": 0,
+        "metadata": {
+          "actualWorkers": 2
+        },
+        "id": "firefox",
+        "name": "firefox",
+        "testDir": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests",
+        "testIgnore": [],
+        "testMatch": [
+          "**/*.@(spec|test).?(c|m)[jt]s?(x)"
+        ],
+        "timeout": 30000
+      }
+    ],
+    "quiet": false,
+    "reporter": [
+      [
+        "list",
+        null
+      ],
+      [
+        "html",
+        {
+          "open": "never",
+          "outputFolder": "playwright-report-firefox"
+        }
+      ],
+      [
+        "json",
+        {
+          "outputFile": "test-results/report-firefox.json"
+        }
+      ]
+    ],
+    "reportSlowTests": {
+      "max": 5,
+      "threshold": 300000
+    },
+    "shard": null,
+    "tags": [],
+    "updateSnapshots": "missing",
+    "updateSourceMethod": "patch",
+    "version": "1.61.0",
+    "workers": 2,
+    "webServer": null
+  },
+  "suites": [
+    {
+      "title": "01-homepage.spec.js",
+      "file": "01-homepage.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Homepage",
+          "file": "01-homepage.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "loads the homepage with correct title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11209,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:11.736Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "090a91cc99fbe0883034-52c2d7a371ed6a233827",
+              "file": "01-homepage.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "shows main sections and navigation links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16531,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:11.712Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "090a91cc99fbe0883034-f2f784f3b296734b557f",
+              "file": "01-homepage.spec.js",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "shows the search box",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 18363,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:38.259Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "090a91cc99fbe0883034-091d0c2fb64a100941a0",
+              "file": "01-homepage.spec.js",
+              "line": 23,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "02-search.spec.js",
+      "file": "02-search.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Search",
+          "file": "02-search.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "search box is visible on homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:42.375Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a7ad0f87212d5af4599e-f61a3633a718e84b6bf1",
+              "file": "02-search.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "typing shows search suggestions",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17466,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:56.654Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a7ad0f87212d5af4599e-9ff84ee19180b638be86",
+              "file": "02-search.spec.js",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "pressing Enter opens search results page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 1,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 13796,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/search\\/product\\?q=laptop/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    3 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/search\\/product\\?q=laptop/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    3 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/02-search.spec.js:29:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/02-search.spec.js",
+                          "column": 24,
+                          "line": 29
+                        },
+                        "snippet": "  27 |     await searchPage.search('laptop');\n  28 |\n> 29 |     await expect(page).toHaveURL(/\\/search\\/product\\?q=laptop/);\n     |                        ^\n  30 |     await expect(page).toHaveTitle(/Hamrobazar/i);\n  31 |   });\n  32 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/02-search.spec.js",
+                            "column": 24,
+                            "line": 29
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/search\\/product\\?q=laptop/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    3 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  27 |     await searchPage.search('laptop');\n  28 |\n> 29 |     await expect(page).toHaveURL(/\\/search\\/product\\?q=laptop/);\n     |                        ^\n  30 |     await expect(page).toHaveTitle(/Hamrobazar/i);\n  31 |   });\n  32 |\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/02-search.spec.js:29:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:49:57.646Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/02-search-HamroBazar-Searc-62878-r-opens-search-results-page-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/02-search-HamroBazar-Searc-62878-r-opens-search-results-page-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/02-search-HamroBazar-Searc-62878-r-opens-search-results-page-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/02-search.spec.js",
+                        "column": 24,
+                        "line": 29
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a7ad0f87212d5af4599e-1c968c3891d76209ae78",
+              "file": "02-search.spec.js",
+              "line": 23,
+              "column": 3
+            },
+            {
+              "title": "search results page loads for a keyword",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4747,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:50:14.138Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a7ad0f87212d5af4599e-b78f492ad1ce5652e76d",
+              "file": "02-search.spec.js",
+              "line": 33,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "03-navigation.spec.js",
+      "file": "03-navigation.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Navigation",
+          "file": "03-navigation.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens FAQ page from header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6022,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:50:18.914Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c380695b6edff283d88a-a6d3ecfb320fe564f254",
+              "file": "03-navigation.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "opens a category page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 0,
+                      "parallelIndex": 0,
+                      "status": "timedOut",
+                      "duration": 30043,
+                      "error": {
+                        "message": "\u001b[31mTest timeout of 30000ms exceeded while setting up \"page\".\u001b[39m",
+                        "stack": "\u001b[31mTest timeout of 30000ms exceeded while setting up \"page\".\u001b[39m"
+                      },
+                      "errors": [
+                        {
+                          "message": "\u001b[31mTest timeout of 30000ms exceeded while setting up \"page\".\u001b[39m"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:50:24.953Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/03-navigation-HamroBazar-Navigation-opens-a-category-page-firefox/error-context.md"
+                        }
+                      ]
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "c380695b6edff283d88a-369158a79d11ea2428ce",
+              "file": "03-navigation.spec.js",
+              "line": 14,
+              "column": 3
+            },
+            {
+              "title": "opens an ad listing from homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16819,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:50:42.958Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "c380695b6edff283d88a-9be21092bd0434037814",
+              "file": "03-navigation.spec.js",
+              "line": 22,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "04-auth.spec.js",
+      "file": "04-auth.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Login / Sign Up",
+          "file": "04-auth.spec.js",
+          "line": 6,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens login page from homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9115,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:01.273Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-1bdf0119ee661686ff0c",
+              "file": "04-auth.spec.js",
+              "line": 7,
+              "column": 3
+            },
+            {
+              "title": "login page shows phone and password fields",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2828,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:10.406Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-2d13d5d50122a4bcd638",
+              "file": "04-auth.spec.js",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "navigates from login to sign up page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3459,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:13.253Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-b84405150dc1e407ccb4",
+              "file": "04-auth.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "sign up page shows form and button is disabled when empty",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 2471,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:16.727Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-4e3c4dddeebda48c1317",
+              "file": "04-auth.spec.js",
+              "line": 38,
+              "column": 3
+            },
+            {
+              "title": "sign up button enables after filling form and accepting terms",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 3016,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:19.220Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-d81dad597709933e4ae3",
+              "file": "04-auth.spec.js",
+              "line": 48,
+              "column": 3
+            },
+            {
+              "title": "opens forgot password page from login",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6077,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:22.278Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-775546946b9b4a0c0d1e",
+              "file": "04-auth.spec.js",
+              "line": 62,
+              "column": 3
+            },
+            {
+              "title": "attempts login with provided credentials",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [
+                    {
+                      "type": "skip",
+                      "description": "Set HB_PHONE and HB_PASSWORD environment variables",
+                      "location": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/04-auth.spec.js",
+                        "line": 76,
+                        "column": 10
+                      }
+                    }
+                  ],
+                  "expectedStatus": "skipped",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "skipped",
+                      "duration": 2825,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:26.690Z",
+                      "annotations": [
+                        {
+                          "type": "skip",
+                          "description": "Set HB_PHONE and HB_PASSWORD environment variables",
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/04-auth.spec.js",
+                            "line": 76,
+                            "column": 10
+                          }
+                        }
+                      ],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "skipped"
+                }
+              ],
+              "id": "f38a8bf7dc0ffff7fa09-982ac322eef342a56673",
+              "file": "04-auth.spec.js",
+              "line": 73,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "05-header.spec.js",
+      "file": "05-header.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Header",
+          "file": "05-header.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "header shows main navigation links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11916,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:28.378Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c3f4dd48b6b7808707d-f1e2ec4b837eb27ba59c",
+              "file": "05-header.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "opens About boosting page from header",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 3,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 20328,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/boost/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/boost/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/05-header.spec.js:23:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/05-header.spec.js",
+                          "column": 24,
+                          "line": 23
+                        },
+                        "snippet": "  21 |     await headerPage.aboutBoostLink.click();\n  22 |\n> 23 |     await expect(page).toHaveURL(/\\/boost/);\n     |                        ^\n  24 |   });\n  25 |\n  26 |   test('opens Contact page from header', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/05-header.spec.js",
+                            "column": 24,
+                            "line": 23
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/boost/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    2 × unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  21 |     await headerPage.aboutBoostLink.click();\n  22 |\n> 23 |     await expect(page).toHaveURL(/\\/boost/);\n     |                        ^\n  24 |   });\n  25 |\n  26 |   test('opens Contact page from header', async ({ page }) => {\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/05-header.spec.js:23:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:32.310Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/05-header-HamroBazar-Heade-e8e75-t-boosting-page-from-header-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/05-header-HamroBazar-Heade-e8e75-t-boosting-page-from-header-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/05-header-HamroBazar-Heade-e8e75-t-boosting-page-from-header-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/05-header.spec.js",
+                        "column": 24,
+                        "line": 23
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "5c3f4dd48b6b7808707d-4f68d585514a5ba637eb",
+              "file": "05-header.spec.js",
+              "line": 17,
+              "column": 3
+            },
+            {
+              "title": "opens Contact page from header",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 15298,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:40.311Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c3f4dd48b6b7808707d-abc3a1ee3442ed6eedfe",
+              "file": "05-header.spec.js",
+              "line": 26,
+              "column": 3
+            },
+            {
+              "title": "Home link returns to homepage",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 15487,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:54.481Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "5c3f4dd48b6b7808707d-a113c8dd868451a85bdc",
+              "file": "05-header.spec.js",
+              "line": 36,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "06-footer.spec.js",
+      "file": "06-footer.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Footer",
+          "file": "06-footer.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "footer shows important links",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 13191,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:51:55.632Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0418dc6e8df51ffeabdf-817247d2db6ae9268bb2",
+              "file": "06-footer.spec.js",
+              "line": 10,
+              "column": 3
+            },
+            {
+              "title": "opens Terms of Use page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 18070,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:08.846Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0418dc6e8df51ffeabdf-3a5a6107d8072c466e05",
+              "file": "06-footer.spec.js",
+              "line": 20,
+              "column": 3
+            },
+            {
+              "title": "opens Privacy Policy page",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 4,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 14228,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/privacy-policy/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/privacy-policy/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js:32:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                          "column": 24,
+                          "line": 32
+                        },
+                        "snippet": "  30 |     await footerPage.privacyLink.click();\n  31 |\n> 32 |     await expect(page).toHaveURL(/\\/privacy-policy/);\n     |                        ^\n  33 |     await expect(page).toHaveTitle(/Privacy/i);\n  34 |   });\n  35 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                            "column": 24,
+                            "line": 32
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/privacy-policy/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  30 |     await footerPage.privacyLink.click();\n  31 |\n> 32 |     await expect(page).toHaveURL(/\\/privacy-policy/);\n     |                        ^\n  33 |     await expect(page).toHaveTitle(/Privacy/i);\n  34 |   });\n  35 |\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js:32:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:12.356Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-Privacy-Policy-page-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-Privacy-Policy-page-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-Privacy-Policy-page-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                        "column": 24,
+                        "line": 32
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0418dc6e8df51ffeabdf-6c19bbc5823d3960581d",
+              "file": "06-footer.spec.js",
+              "line": 28,
+              "column": 3
+            },
+            {
+              "title": "opens Safety Tips page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 12982,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:26.933Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "0418dc6e8df51ffeabdf-650a5209b57f93499c9f",
+              "file": "06-footer.spec.js",
+              "line": 36,
+              "column": 3
+            },
+            {
+              "title": "opens FAQ page from footer",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 5,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 22737,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/FAQ/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/FAQ/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js:48:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                          "column": 24,
+                          "line": 48
+                        },
+                        "snippet": "  46 |     await footerPage.faqLink.click();\n  47 |\n> 48 |     await expect(page).toHaveURL(/\\/FAQ/);\n     |                        ^\n  49 |     await expect(page).toHaveTitle(/FAQ/i);\n  50 |   });\n  51 | });"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                            "column": 24,
+                            "line": 48
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/FAQ/\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  46 |     await footerPage.faqLink.click();\n  47 |\n> 48 |     await expect(page).toHaveURL(/\\/FAQ/);\n     |                        ^\n  49 |     await expect(page).toHaveTitle(/FAQ/i);\n  50 |   });\n  51 | });\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js:48:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:30.205Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-FAQ-page-from-footer-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-FAQ-page-from-footer-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/06-footer-HamroBazar-Footer-opens-FAQ-page-from-footer-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/06-footer.spec.js",
+                        "column": 24,
+                        "line": 48
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "0418dc6e8df51ffeabdf-a500a8df53fdf351b34e",
+              "file": "06-footer.spec.js",
+              "line": 44,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "07-category.spec.js",
+      "file": "07-category.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Categories",
+          "file": "07-category.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens Mobile Phones category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 18163,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:39.939Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "988770733199d5bf8a60-fc37770b50ad246f8bbc",
+              "file": "07-category.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "opens Real Estate category",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 17456,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:59.114Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "988770733199d5bf8a60-467a983a87dd78e0336e",
+              "file": "07-category.spec.js",
+              "line": 13,
+              "column": 3
+            },
+            {
+              "title": "opens Electronics category",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 2,
+                      "parallelIndex": 1,
+                      "status": "failed",
+                      "duration": 17834,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/category\\/.*electronic/i\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/category\\/.*electronic/i\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/07-category.spec.js:26:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/07-category.spec.js",
+                          "column": 24,
+                          "line": 26
+                        },
+                        "snippet": "  24 |     await categoryPage.openElectronicsCategory();\n  25 |\n> 26 |     await expect(page).toHaveURL(/\\/category\\/.*electronic/i);\n     |                        ^\n  27 |   });\n  28 |\n  29 |   test('category page shows listing content', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/07-category.spec.js",
+                            "column": 24,
+                            "line": 26
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/category\\/.*electronic/i\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\n\n  24 |     await categoryPage.openElectronicsCategory();\n  25 |\n> 26 |     await expect(page).toHaveURL(/\\/category\\/.*electronic/i);\n     |                        ^\n  27 |   });\n  28 |\n  29 |   test('category page shows listing content', async ({ page }) => {\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/07-category.spec.js:26:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:52:58.117Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/07-category-HamroBazar-Categories-opens-Electronics-category-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/07-category-HamroBazar-Categories-opens-Electronics-category-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/07-category-HamroBazar-Categories-opens-Electronics-category-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/07-category.spec.js",
+                        "column": 24,
+                        "line": 26
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "988770733199d5bf8a60-22086764ea05f128641b",
+              "file": "07-category.spec.js",
+              "line": 21,
+              "column": 3
+            },
+            {
+              "title": "category page shows listing content",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 14961,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:18.234Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "988770733199d5bf8a60-5aff2b2417f22b9b5278",
+              "file": "07-category.spec.js",
+              "line": 29,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "08-ad-detail.spec.js",
+      "file": "08-ad-detail.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Ad Detail",
+          "file": "08-ad-detail.spec.js",
+          "line": 4,
+          "column": 6,
+          "specs": [
+            {
+              "title": "opens an ad listing from homepage",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 6,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 17442,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: not \u001b[32m\"https://hamrobazaar.com/\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mhttps://hamrobazaar.com/\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: not \u001b[32m\"https://hamrobazaar.com/\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mhttps://hamrobazaar.com/\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/08-ad-detail.spec.js:13:28",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/08-ad-detail.spec.js",
+                          "column": 28,
+                          "line": 13
+                        },
+                        "snippet": "  11 |     await page.waitForLoadState('networkidle');\n  12 |\n> 13 |     await expect(page).not.toHaveURL(homeUrl);\n     |                            ^\n  14 |   });\n  15 |\n  16 |   test('ad detail page has a title', async ({ page }) => {"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/08-ad-detail.spec.js",
+                            "column": 28,
+                            "line": 13
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).not.\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected: not \u001b[32m\"https://hamrobazaar.com/\"\u001b[39m\nReceived: \u001b[31m\"\u001b[7mhttps://hamrobazaar.com/\u001b[27m\"\u001b[39m\nTimeout:  5000ms\n\nCall log:\n\u001b[2m  - Expect \"not toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  11 |     await page.waitForLoadState('networkidle');\n  12 |\n> 13 |     await expect(page).not.toHaveURL(homeUrl);\n     |                            ^\n  14 |   });\n  15 |\n  16 |   test('ad detail page has a title', async ({ page }) => {\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/08-ad-detail.spec.js:13:28"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:18.366Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/08-ad-detail-HamroBazar-Ad-db4d7-an-ad-listing-from-homepage-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/08-ad-detail-HamroBazar-Ad-db4d7-an-ad-listing-from-homepage-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/08-ad-detail-HamroBazar-Ad-db4d7-an-ad-listing-from-homepage-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/08-ad-detail.spec.js",
+                        "column": 28,
+                        "line": 13
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "a213d5e09a7fc5bf204f-f7786127bf1e5df5a23d",
+              "file": "08-ad-detail.spec.js",
+              "line": 5,
+              "column": 3
+            },
+            {
+              "title": "ad detail page has a title",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11947,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:36.223Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "a213d5e09a7fc5bf204f-b064d4fa7c6e7f1ad625",
+              "file": "08-ad-detail.spec.js",
+              "line": 16,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "09-chat.spec.js",
+      "file": "09-chat.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Chat",
+          "file": "09-chat.spec.js",
+          "line": 7,
+          "column": 6,
+          "specs": [
+            {
+              "title": "chat page loads",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11660,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:39.198Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-19aacfaa345db117a655",
+              "file": "09-chat.spec.js",
+              "line": 8,
+              "column": 3
+            },
+            {
+              "title": "ad detail page shows Start a chat button",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9480,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:48.187Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-8b1e6bbbcaab368ba00f",
+              "file": "09-chat.spec.js",
+              "line": 16,
+              "column": 3
+            },
+            {
+              "title": "clicking Start a chat shows under construction message",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13254,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:54.677Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-544d416b60df2a1ccaf5",
+              "file": "09-chat.spec.js",
+              "line": 24,
+              "column": 3
+            },
+            {
+              "title": "Got it button closes the chat dialog",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 11308,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:53:57.682Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-a1365d0ed3fc90a08719",
+              "file": "09-chat.spec.js",
+              "line": 35,
+              "column": 3
+            },
+            {
+              "title": "Start a chat is available from homepage ad listing",
+              "ok": false,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 8,
+                      "parallelIndex": 0,
+                      "status": "failed",
+                      "duration": 19206,
+                      "error": {
+                        "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/detail\\//\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n",
+                        "stack": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/detail\\//\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/09-chat.spec.js:49:24",
+                        "location": {
+                          "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/09-chat.spec.js",
+                          "column": 24,
+                          "line": 49
+                        },
+                        "snippet": "  47 |     await chatPage.openFirstAdFromHome();\n  48 |\n> 49 |     await expect(page).toHaveURL(/\\/detail\\//);\n     |                        ^\n  50 |     await expect(chatPage.startChatButton).toBeVisible();\n  51 |   });\n  52 |"
+                      },
+                      "errors": [
+                        {
+                          "location": {
+                            "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/09-chat.spec.js",
+                            "column": 24,
+                            "line": 49
+                          },
+                          "message": "Error: \u001b[2mexpect(\u001b[22m\u001b[31mpage\u001b[39m\u001b[2m).\u001b[22mtoHaveURL\u001b[2m(\u001b[22m\u001b[32mexpected\u001b[39m\u001b[2m)\u001b[22m failed\n\nExpected pattern: \u001b[32m/\\/detail\\//\u001b[39m\nReceived string:  \u001b[31m\"https://hamrobazaar.com/\"\u001b[39m\nTimeout: 5000ms\n\nCall log:\n\u001b[2m  - Expect \"toHaveURL\" with timeout 5000ms\u001b[22m\n\u001b[2m    - unexpected value \"https://hamrobazaar.com/\"\u001b[22m\n\n\n  47 |     await chatPage.openFirstAdFromHome();\n  48 |\n> 49 |     await expect(page).toHaveURL(/\\/detail\\//);\n     |                        ^\n  50 |     await expect(chatPage.startChatButton).toBeVisible();\n  51 |   });\n  52 |\n    at /Users/mercantile/Downloads/HamroBazar- Playwright/tests/09-chat.spec.js:49:24"
+                        }
+                      ],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:07.958Z",
+                      "annotations": [],
+                      "attachments": [
+                        {
+                          "name": "screenshot",
+                          "contentType": "image/png",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/09-chat-HamroBazar-Chat-St-eadd0-le-from-homepage-ad-listing-firefox/test-failed-1.png"
+                        },
+                        {
+                          "name": "video",
+                          "contentType": "video/webm",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/09-chat-HamroBazar-Chat-St-eadd0-le-from-homepage-ad-listing-firefox/video.webm"
+                        },
+                        {
+                          "name": "error-context",
+                          "contentType": "text/markdown",
+                          "path": "/Users/mercantile/Downloads/HamroBazar- Playwright/test-results/09-chat-HamroBazar-Chat-St-eadd0-le-from-homepage-ad-listing-firefox/error-context.md"
+                        }
+                      ],
+                      "errorLocation": {
+                        "file": "/Users/mercantile/Downloads/HamroBazar- Playwright/tests/09-chat.spec.js",
+                        "column": 24,
+                        "line": 49
+                      }
+                    }
+                  ],
+                  "status": "unexpected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-11875c23a6407829f9f0",
+              "file": "09-chat.spec.js",
+              "line": 45,
+              "column": 3
+            },
+            {
+              "title": "chat page shows sign in option for guests",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 5377,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:09.010Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "adc0d97a6f7fec3580da-24985d2fea5bcfaff97b",
+              "file": "09-chat.spec.js",
+              "line": 53,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    },
+    {
+      "title": "10-critical-error.spec.js",
+      "file": "10-critical-error.spec.js",
+      "column": 0,
+      "line": 0,
+      "specs": [],
+      "suites": [
+        {
+          "title": "HamroBazar Critical Error Page",
+          "file": "10-critical-error.spec.js",
+          "line": 17,
+          "column": 6,
+          "specs": [
+            {
+              "title": "Homepage does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 14565,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:14.412Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-b3cf19f29e825959e9bc",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Contact does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 11546,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:29.382Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-ece539ae0f4d7d9a9998",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "FAQ does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6647,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:29.002Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-199b007148e077edec21",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Login does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 6667,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:35.670Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-feda37fbb9bd374135cc",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Sign up does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 7235,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:42.359Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-459eca068e8f1338b205",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Boost does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4905,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:44.067Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-99eafb3eed765560d35f",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Chat does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 4858,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:49.017Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-23083311bec0a414e979",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Terms does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 9795,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:49.610Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-fb611876108cd02fcd5a",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Privacy does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 6595,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:53.908Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-b7c8265a98d3118d7e94",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "Safety Tips does not show critical error page",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 7,
+                      "parallelIndex": 1,
+                      "status": "passed",
+                      "duration": 16468,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:54:59.420Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-45ba60044af50bd573e5",
+              "file": "10-critical-error.spec.js",
+              "line": 19,
+              "column": 5
+            },
+            {
+              "title": "ad detail page does not show critical error",
+              "ok": true,
+              "tags": [],
+              "tests": [
+                {
+                  "timeout": 30000,
+                  "annotations": [],
+                  "expectedStatus": "passed",
+                  "projectId": "firefox",
+                  "projectName": "firefox",
+                  "results": [
+                    {
+                      "workerIndex": 9,
+                      "parallelIndex": 0,
+                      "status": "passed",
+                      "duration": 13832,
+                      "errors": [],
+                      "stdout": [],
+                      "stderr": [],
+                      "retry": 0,
+                      "startTime": "2026-06-22T02:55:00.526Z",
+                      "annotations": [],
+                      "attachments": []
+                    }
+                  ],
+                  "status": "expected"
+                }
+              ],
+              "id": "88640adc5f9d5b44c258-f2471c240cb2a5bff835",
+              "file": "10-critical-error.spec.js",
+              "line": 28,
+              "column": 3
+            }
+          ]
+        }
+      ]
+    }
+  ],
+  "errors": [],
+  "stats": {
+    "startTime": "2026-06-22T02:49:10.774Z",
+    "duration": 366349.249,
+    "expected": 40,
+    "skipped": 1,
+    "unexpected": 8,
+    "flaky": 0
+  }
+}

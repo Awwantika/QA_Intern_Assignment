@@ -1,0 +1,43 @@
+{
+  "name": "hamrobazar--playwright",
+  "version": "1.0.0",
+  "description": "",
+  "main": "index.js",
+  "scripts": {
+    "test": "playwright test",
+    "test:report": "playwright test && playwright show-report",
+    "test:headed": "playwright test --headed",
+    "test:search": "playwright test tests/02-search.spec.js",
+    "test:search:report": "playwright test tests/02-search.spec.js && playwright show-report",
+    "test:search:headed": "playwright test tests/02-search.spec.js --headed",
+    "test:homepage": "playwright test tests/01-homepage.spec.js",
+    "test:homepage:report": "playwright test tests/01-homepage.spec.js && playwright show-report",
+    "test:auth": "playwright test tests/04-auth.spec.js",
+    "test:auth:report": "playwright test tests/04-auth.spec.js && playwright show-report",
+    "test:navigation": "playwright test tests/03-navigation.spec.js",
+    "test:header": "playwright test tests/05-header.spec.js",
+    "test:footer": "playwright test tests/06-footer.spec.js",
+    "test:category": "playwright test tests/07-category.spec.js",
+    "test:ad": "playwright test tests/08-ad-detail.spec.js",
+    "test:chat": "playwright test tests/09-chat.spec.js",
+    "test:chat:headed": "playwright test tests/09-chat.spec.js --headed",
+    "test:error": "playwright test tests/10-critical-error.spec.js",
+    "test:ui": "playwright test --ui",
+    "report": "playwright show-report",
+    "codegen": "playwright codegen https://hamrobazaar.com",
+    "qa:sheet": "node scripts/generate-qa-sheet.js",
+    "qa:detailed": "node scripts/generate-detailed-sheet.js",
+    "qa:bugs": "node scripts/generate-bug-report.js",
+    "qa:bugs:view": "node scripts/show-bugs.js",
+    "qa:bugs:serve": "node scripts/show-bugs.js",
+    "qa:bugs:file": "node scripts/show-bugs.js --file"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "type": "commonjs",
+  "devDependencies": {
+    "@playwright/test": "^1.61.0",
+    "exceljs": "^4.4.0"
+  }
+}

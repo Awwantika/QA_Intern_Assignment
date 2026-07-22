@@ -1,0 +1,16 @@
+{
+  "categories": [
+    {
+      "name": "Mobile Phones & Accessories",
+      "urlPattern": "/category/mobile-phones-accessories"
+    },
+    {
+      "name": "Real Estate",
+      "urlPattern": "/category/.*real-estate"
+    },
+    {
+      "name": "Electronics, TVs, & More",
+      "urlPattern": "/category/.*electronic"
+    }
+  ]
+}

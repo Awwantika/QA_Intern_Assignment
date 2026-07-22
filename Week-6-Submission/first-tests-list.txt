@@ -1,0 +1,9 @@
+Week 6 - First basic UI tests
+
+1. tests/01-homepage.spec.js
+2. tests/02-search.spec.js
+3. tests/03-navigation.spec.js
+4. tests/04-auth.spec.js
+5. tests/05-header.spec.js
+
+Run: npx playwright test tests/01-homepage.spec.js tests/02-search.spec.js tests/03-navigation.spec.js tests/04-auth.spec.js tests/05-header.spec.js

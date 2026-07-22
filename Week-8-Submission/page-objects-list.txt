@@ -1,0 +1,14 @@
+Week 8 Page Objects
+
+- pages/BasePage.js
+- pages/HomePage.js
+- pages/SearchPage.js
+- pages/LoginPage.js
+- pages/SignUpPage.js
+- pages/HeaderPage.js
+- pages/FooterPage.js
+- pages/NavigationPage.js
+- pages/CategoryPage.js
+- pages/AdDetailPage.js
+- pages/ChatPage.js
+- pages/ErrorPage.js

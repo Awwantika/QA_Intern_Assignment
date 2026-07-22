@@ -1,0 +1,1025 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>HamroBazar Bug Report</title>
+  <style>
+    :root {
+      --bg: #f4f6f9;
+      --surface: #ffffff;
+      --text: #1a1a2e;
+      --muted: #5c6370;
+      --border: #e2e8f0;
+      --accent: #1565c0;
+      --p0: #c62828;
+      --p1: #ef6c00;
+      --p2: #2e7d32;
+      --open: #d32f2f;
+      --blocked: #ed6c02;
+      --pending: #1565c0;
+    }
+    * { box-sizing: border-box; }
+    body {
+      margin: 0;
+      font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+      background: var(--bg);
+      color: var(--text);
+      line-height: 1.5;
+    }
+    .topbar {
+      background: linear-gradient(135deg, #0d47a1, #1565c0);
+      color: #fff;
+      padding: 1.25rem 1.5rem 1.5rem;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+      box-shadow: 0 2px 12px rgba(0,0,0,.15);
+    }
+    .topbar h1 { margin: 0 0 .25rem; font-size: 1.5rem; }
+    .topbar p { margin: 0; opacity: .9; font-size: .95rem; }
+    .stats {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      margin-top: 1rem;
+    }
+    .stat {
+      background: rgba(255,255,255,.15);
+      border-radius: 8px;
+      padding: .5rem .85rem;
+      font-size: .875rem;
+    }
+    .stat strong { display: block; font-size: 1.25rem; }
+    .controls {
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+      padding: 1rem 1.5rem;
+      display: flex;
+      flex-wrap: wrap;
+      gap: .75rem;
+      align-items: center;
+      position: sticky;
+      top: 0;
+      z-index: 9;
+    }
+    .controls label { font-size: .85rem; color: var(--muted); font-weight: 600; }
+    .controls select, .controls input, .controls button {
+      padding: .45rem .65rem;
+      border: 1px solid var(--border);
+      border-radius: 6px;
+      font-size: .9rem;
+      background: #fff;
+    }
+    .controls input[type="search"] { min-width: 220px; flex: 1; }
+    .module-chips {
+      display: flex;
+      flex-wrap: wrap;
+      gap: .5rem;
+      padding: .75rem 1.5rem;
+      background: var(--surface);
+      border-bottom: 1px solid var(--border);
+    }
+    .module-chip {
+      border: 1px solid var(--border);
+      background: #fff;
+      border-radius: 999px;
+      padding: .35rem .75rem;
+      font-size: .8rem;
+      cursor: pointer;
+    }
+    .module-chip:hover, .module-chip.active {
+      border-color: var(--accent);
+      background: #e3f2fd;
+      color: var(--accent);
+    }
+    .module-chip span { opacity: .7; margin-left: .25rem; }
+    main { max-width: 1100px; margin: 0 auto; padding: 1.25rem 1.5rem 2rem; }
+    .bug-card {
+      background: var(--surface);
+      border: 1px solid var(--border);
+      border-radius: 10px;
+      margin-bottom: 1rem;
+      overflow: hidden;
+      border-left: 4px solid var(--border);
+    }
+    .bug-card.priority-p0 { border-left-color: var(--p0); }
+    .bug-card.priority-p1 { border-left-color: var(--p1); }
+    .bug-card.priority-p2 { border-left-color: var(--p2); }
+    .bug-header { padding: 1rem 1.25rem .75rem; cursor: pointer; }
+    .bug-header:hover { background: #fafbfc; }
+    .bug-meta { display: flex; flex-wrap: wrap; gap: .4rem; margin-bottom: .5rem; align-items: center; }
+    .bug-id { font-weight: 700; font-size: .9rem; color: var(--accent); }
+    .badge {
+      font-size: .72rem;
+      font-weight: 600;
+      padding: .15rem .45rem;
+      border-radius: 4px;
+      background: #eceff1;
+      color: #37474f;
+      text-transform: uppercase;
+      letter-spacing: .02em;
+    }
+    .badge.module { background: #e8eaf6; color: #283593; }
+    .badge.photo { background: #f3e5f5; color: #6a1b9a; }
+    .badge.priority-p0 { background: #ffebee; color: var(--p0); }
+    .badge.priority-p1 { background: #fff3e0; color: var(--p1); }
+    .badge.priority-p2 { background: #e8f5e9; color: var(--p2); }
+    .badge.status-open { background: #ffebee; color: var(--open); }
+    .badge.status-blocked { background: #fff3e0; color: var(--blocked); }
+    .badge.status-pending { background: #e3f2fd; color: var(--pending); }
+    .bug-header h2 { margin: 0; font-size: 1.05rem; }
+    .feature { margin: .35rem 0 0; color: var(--muted); font-size: .875rem; }
+    .bug-body {
+      display: none;
+      padding: 0 1.25rem 1.25rem;
+      border-top: 1px solid var(--border);
+    }
+    .bug-card.expanded .bug-body { display: block; }
+    .evidence-images {
+      margin-top: 1rem;
+      padding-bottom: 1rem;
+      border-bottom: 1px dashed var(--border);
+    }
+    .evidence-gallery {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+      gap: 1rem;
+      margin-top: .5rem;
+    }
+    .evidence-figure {
+      margin: 0;
+      border: 1px solid var(--border);
+      border-radius: 8px;
+      overflow: hidden;
+      background: #fafafa;
+    }
+    .evidence-figure a { display: block; line-height: 0; }
+    .evidence-figure img {
+      width: 100%;
+      height: auto;
+      max-height: 420px;
+      object-fit: contain;
+      background: #111;
+    }
+    .evidence-figure figcaption {
+      padding: .45rem .65rem;
+      font-size: .78rem;
+      color: var(--muted);
+      border-top: 1px solid var(--border);
+      background: #fff;
+    }
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
+      gap: 1rem;
+      margin-top: 1rem;
+    }
+    section h3 {
+      margin: 0 0 .35rem;
+      font-size: .78rem;
+      text-transform: uppercase;
+      letter-spacing: .04em;
+      color: var(--muted);
+    }
+    section p { margin: 0; font-size: .9rem; }
+    section .actual { color: #b71c1c; }
+    dl { margin: 0; font-size: .875rem; }
+    dt { font-weight: 600; color: var(--muted); margin-top: .5rem; }
+    dt:first-child { margin-top: 0; }
+    dd { margin: .1rem 0 0; }
+    .comments {
+      margin-top: 1rem;
+      padding-top: 1rem;
+      border-top: 1px dashed var(--border);
+    }
+    .empty {
+      text-align: center;
+      padding: 3rem;
+      color: var(--muted);
+    }
+    .footer-note {
+      text-align: center;
+      color: var(--muted);
+      font-size: .8rem;
+      padding: 1rem;
+    }
+  </style>
+</head>
+<body>
+  <div class="topbar">
+    <h1>HamroBazar Bug Report</h1>
+    <p>https://hamrobazaar.com · Generated 6/26/2026, 3:23:57 PM</p>
+    <div class="stats">
+      <div class="stat"><strong>14</strong>Total bugs</div>
+      <div class="stat"><strong>5</strong>Open</div>
+      <div class="stat"><strong>3</strong>P0 active</div>
+      <div class="stat"><strong>1</strong>Screenshots</div>
+    </div>
+  </div>
+
+  <div class="controls">
+    <label for="search">Search</label>
+    <input id="search" type="search" placeholder="Search by ID, title, module…" />
+
+    <label for="filter-module">Module</label>
+    <select id="filter-module">
+      <option value="">All modules</option>
+      <option value="Auth">Auth</option><option value="Chat">Chat</option><option value="Global">Global</option><option value="Header">Header</option><option value="Homepage">Homepage</option><option value="Listing">Listing</option><option value="Navigation">Navigation</option><option value="Search">Search</option>
+    </select>
+
+    <label for="filter-status">Status</label>
+    <select id="filter-status">
+      <option value="">All statuses</option>
+      <option value="Blocked">Blocked</option><option value="Fixed">Fixed</option><option value="Open">Open</option><option value="Pending">Pending</option>
+    </select>
+
+    <label for="filter-priority">Priority</label>
+    <select id="filter-priority">
+      <option value="">All priorities</option>
+      <option value="P0">P0</option><option value="P1">P1</option><option value="P2">P2</option>
+    </select>
+
+    <button type="button" id="expand-all">Expand all</button>
+    <button type="button" id="collapse-all">Collapse all</button>
+  </div>
+
+  <div class="module-chips" id="module-chips">
+    <button type="button" class="module-chip active" data-module="">All</button>
+    <button type="button" class="module-chip" data-module="Auth">Auth <span>2/3 open</span></button>
+<button type="button" class="module-chip" data-module="Chat">Chat <span>2/2 open</span></button>
+<button type="button" class="module-chip" data-module="Global">Global <span>1/1 open</span></button>
+<button type="button" class="module-chip" data-module="Header">Header <span>0/2 open</span></button>
+<button type="button" class="module-chip" data-module="Homepage">Homepage <span>0/2 open</span></button>
+<button type="button" class="module-chip" data-module="Listing">Listing <span>0/1 open</span></button>
+<button type="button" class="module-chip" data-module="Navigation">Navigation <span>0/1 open</span></button>
+<button type="button" class="module-chip" data-module="Search">Search <span>0/2 open</span></button>
+  </div>
+
+  <main id="bug-list">
+    
+    <article class="bug-card priority-p0 status-open"
+      data-id="BUG-HB-001"
+      data-module="Chat"
+      data-status="Open"
+      data-priority="P0"
+      data-search="bug-hb-001 chat start a chat chat feature shows &quot;under construction&quot; instead of opening chat functional — automated tests pass because they assert the placeholder dialog. feature is not live for buyers/sellers.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-001</span>
+          <span class="badge module">Chat</span>
+          <span class="badge priority-p0">P0</span>
+          <span class="badge status-open">Open</span>
+          <span class="badge severity">Major</span>
+          
+        </div>
+        <h2>Chat feature shows &quot;Under construction&quot; instead of opening chat</h2>
+        <p class="feature">Start a chat · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open https://hamrobazaar.com<br>2. Open any ad detail page<br>3. Click &quot;Start a chat&quot;<br>4. Observe dialog content</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Chat opens or prompts user to sign in and start messaging the seller.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Modal appears with message &quot;Under construction&quot; and &quot;We are working on the chat feature.&quot; User must click &quot;Got it&quot; to dismiss.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>—</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/09-chat.spec.js; playwright-report</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Automated tests pass because they assert the placeholder dialog. Feature is not live for buyers/sellers.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p2 status-open"
+      data-id="BUG-HB-002"
+      data-module="Chat"
+      data-status="Open"
+      data-priority="P2"
+      data-search="bug-hb-002 chat chat page dedicated /chat page does not provide messaging for guests functional — related to bug-hb-001. consider hiding chat entry points until feature ships.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-002</span>
+          <span class="badge module">Chat</span>
+          <span class="badge priority-p2">P2</span>
+          <span class="badge status-open">Open</span>
+          <span class="badge severity">Minor</span>
+          
+        </div>
+        <h2>Dedicated /chat page does not provide messaging for guests</h2>
+        <p class="feature">Chat page · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open https://hamrobazaar.com/chat (not signed in)<br>2. Review page content</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Guest sees chat inbox or clear path to sign in and use chat.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Page loads but only shows Sign in option; underlying chat feature is under construction.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>—</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/09-chat.spec.js</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Related to BUG-HB-001. Consider hiding chat entry points until feature ships.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p0 status-open"
+      data-id="BUG-HB-003"
+      data-module="Auth"
+      data-status="Open"
+      data-priority="P0"
+      data-search="bug-hb-003 auth phone validation login phone field shows invalid state for valid 10-digit nepal mobile number validation c15, c19 user reported &quot;invalid number&quot; ui. verify country scrollable country picker or libphonenumber rules reject this prefix.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-003</span>
+          <span class="badge module">Auth</span>
+          <span class="badge priority-p0">P0</span>
+          <span class="badge status-open">Open</span>
+          <span class="badge severity">Major</span>
+          <span class="badge photo">1 photo</span>
+        </div>
+        <h2>Login phone field shows invalid state for valid 10-digit Nepal mobile number</h2>
+        <p class="feature">Phone validation · Validation</p>
+      </header>
+      <div class="bug-body">
+        
+        <section class="evidence-images">
+          <h3>Screenshots / evidence</h3>
+          <div class="evidence-gallery">
+        <figure class="evidence-figure">
+          <a href="assets/bug-hb-003-0.png" target="_blank" rel="noopener">
+            <img src="assets/bug-hb-003-0.png" alt="phone-validation.png" loading="lazy" />
+          </a>
+          <figcaption>phone-validation.png</figcaption>
+        </figure></div>
+        </section>
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Go to https://hamrobazaar.com/login<br>2. Enter phone: 9877692345<br>3. Enter any password<br>4. Tab out of phone field or click Log In</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Valid 10-digit Nepal mobile (98xxxxxxxx) is accepted without error styling.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Phone input displays red error border / invalid state even though the number matches expected Nepal mobile format.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C15, C19</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>phone-validation.png · 1 image(s) attached</dd>
+              <dt>Reported by</dt><dd>Manual QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>User reported &quot;invalid number&quot; UI. Verify country scrollable country picker or libphonenumber rules reject this prefix.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-open"
+      data-id="BUG-HB-004"
+      data-module="Auth"
+      data-status="Open"
+      data-priority="P1"
+      data-search="bug-hb-004 auth login submit login request blocked by recaptcha before credentials are verified security / ux c19 expected bot protection, but blocks automated regression of c19 (invalid login feedback).">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-004</span>
+          <span class="badge module">Auth</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-open">Open</span>
+          <span class="badge severity">Minor</span>
+          
+        </div>
+        <h2>Login request blocked by reCAPTCHA before credentials are verified</h2>
+        <p class="feature">Login submit · Security / UX</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Go to /login<br>2. Fill valid phone and password<br>3. Click Log In without completing reCAPTCHA</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Clear message that captcha is required, or login API validates credentials after captcha.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">No HamroBazar auth API call is sent; user remains on /login with no server-side invalid-credential feedback.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C19</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/04-auth.spec.js; network trace during manual run</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Expected bot protection, but blocks automated regression of C19 (invalid login feedback).</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-blocked"
+      data-id="BUG-HB-005"
+      data-module="Auth"
+      data-status="Blocked"
+      data-priority="P1"
+      data-search="bug-hb-005 auth invalid login feedback cannot verify error message for wrong credentials (blocked by captcha) functional c19 retest manually in browser with captcha completed.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-005</span>
+          <span class="badge module">Auth</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-blocked">Blocked</span>
+          <span class="badge severity">Minor</span>
+          
+        </div>
+        <h2>Cannot verify error message for wrong credentials (blocked by captcha)</h2>
+        <p class="feature">Invalid login feedback · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Go to /login<br>2. Enter wrong phone/password<br>3. Complete captcha<br>4. Submit</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Clear error message; user stays on login page.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Manual test not completed — reCAPTCHA prevents unattended verification.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C19</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome / manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-Test-Cases-Detailed.csv (C19 Pending)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Retest manually in browser with captcha completed.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p2 status-fixed"
+      data-id="BUG-HB-006"
+      data-module="Header"
+      data-status="Fixed"
+      data-priority="P2"
+      data-search="bug-hb-006 header navigation links duplicate &quot;home&quot; links on page (utility bar + logo) ux / accessibility c2, s9 fixed in automation via getbytestid(&quot;utility-bar-home-link&quot;). website still has duplicate home links for users.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-006</span>
+          <span class="badge module">Header</span>
+          <span class="badge priority-p2">P2</span>
+          <span class="badge status-fixed">Fixed</span>
+          <span class="badge severity">Minor</span>
+          
+        </div>
+        <h2>Duplicate &quot;Home&quot; links on page (utility bar + logo)</h2>
+        <p class="feature">Navigation links · UX / Accessibility</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open homepage or /FAQ<br>2. Inspect header<br>3. Search DOM for links named &quot;Home&quot;</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Single unambiguous Home navigation control in the active header region.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Two links resolve to Home: utility-bar-home-link and navbar-logo-link (both href=&quot;/&quot;). Automation cannot click by role without ambiguity.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C2, S9</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/05-header.spec.js; pages/HeaderPage.js uses utility-bar-home-link</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Fixed in automation via getByTestId(&quot;utility-bar-home-link&quot;). Website still has duplicate Home links for users.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p2 status-fixed"
+      data-id="BUG-HB-007"
+      data-module="Header"
+      data-status="Fixed"
+      data-priority="P2"
+      data-search="bug-hb-007 header contact link duplicate &quot;contact us&quot; links visible (utility bar and footer) ux / accessibility s9, c2 fixed in automation: headerpage uses utility-bar-contact-link; footerpage uses footer-link-contact-us.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-007</span>
+          <span class="badge module">Header</span>
+          <span class="badge priority-p2">P2</span>
+          <span class="badge status-fixed">Fixed</span>
+          <span class="badge severity">Minor</span>
+          
+        </div>
+        <h2>Duplicate &quot;Contact us&quot; links visible (utility bar and footer)</h2>
+        <p class="feature">Contact link · UX / Accessibility</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open homepage<br>2. Scroll so footer is visible<br>3. Locate Contact us links</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>One Contact link per navigation region, or distinct labels (e.g. header vs footer).</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">getByRole(&quot;link&quot;, { name: /Contact us/i }) matches utility-bar-contact-link and footer-link-contact-us simultaneously.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>S9, C2</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/05-header.spec.js; tests/06-footer.spec.js; pages use data-testid</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Fixed in automation: HeaderPage uses utility-bar-contact-link; FooterPage uses footer-link-contact-us.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p2 status-fixed"
+      data-id="BUG-HB-008"
+      data-module="Navigation"
+      data-status="Fixed"
+      data-priority="P2"
+      data-search="bug-hb-008 navigation ad listing from homepage specific trending ad &quot;iphone 13 fresh&quot; not always present on homepage content / test data s6 homepage listings rotate. fixed in tests/03-navigation.spec.js using dynamic /detail/ link.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-008</span>
+          <span class="badge module">Navigation</span>
+          <span class="badge priority-p2">P2</span>
+          <span class="badge status-fixed">Fixed</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>Specific trending ad &quot;Iphone 13 Fresh&quot; not always present on homepage</h2>
+        <p class="feature">Ad listing from homepage · Content / Test data</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open homepage<br>2. Search for listing titled &quot;Iphone 13 Fresh&quot;</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Smoke test ad remains available or test uses dynamic first ad link.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Link /Iphone 13 Fresh/i not found on homepage during test run; navigation spec failed.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>S6</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium)</dd>
+              <dt>Evidence</dt><dd>tests/03-navigation.spec.js; tests/08-ad-detail.spec.js uses dynamic selector</dd>
+              <dt>Reported by</dt><dd>Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Homepage listings rotate. Fixed in tests/03-navigation.spec.js using dynamic /detail/ link.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-pending"
+      data-id="BUG-HB-009"
+      data-module="Search"
+      data-status="Pending"
+      data-priority="P1"
+      data-search="bug-hb-009 search empty search empty search submit behavior not verified functional c8 add automated or manual result to close c8.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-009</span>
+          <span class="badge module">Search</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-pending">Pending</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>Empty search submit behavior not verified</h2>
+        <p class="feature">Empty search · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Focus search box on homepage<br>2. Submit with empty query</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>No crash; stay on page or show helpful message.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Not yet tested manually.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C8</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-QA-Sheet.csv (C8 Manual)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Add automated or manual result to close C8.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p2 status-pending"
+      data-id="BUG-HB-010"
+      data-module="Search"
+      data-status="Pending"
+      data-priority="P2"
+      data-search="bug-hb-010 search special characters special character and nepali text search not verified functional c9 low priority edge-case coverage.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-010</span>
+          <span class="badge module">Search</span>
+          <span class="badge priority-p2">P2</span>
+          <span class="badge status-pending">Pending</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>Special character and Nepali text search not verified</h2>
+        <p class="feature">Special characters · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Search @#$<br>2. Search Nepali text sample<br>3. Observe results</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>No error page; application remains usable.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Not yet tested manually.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C9</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-QA-Sheet.csv (C9 Manual)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Low priority edge-case coverage.</p></section>
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-pending"
+      data-id="BUG-HB-011"
+      data-module="Homepage"
+      data-status="Pending"
+      data-priority="P1"
+      data-search="bug-hb-011 homepage all categories all categories menu behavior not verified functional c4 ">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-011</span>
+          <span class="badge module">Homepage</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-pending">Pending</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>All Categories menu behavior not verified</h2>
+        <p class="feature">All Categories · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open homepage<br>2. Click All Categories<br>3. Verify category list appears</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Category menu or list opens.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Manual test pending.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C4</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-Test-Cases-Detailed.csv (C4)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-pending"
+      data-id="BUG-HB-012"
+      data-module="Homepage"
+      data-status="Pending"
+      data-priority="P1"
+      data-search="bug-hb-012 homepage latest uploads latest uploads / recommended section not verified functional c5 ">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-012</span>
+          <span class="badge module">Homepage</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-pending">Pending</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>Latest Uploads / Recommended section not verified</h2>
+        <p class="feature">Latest uploads · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Scroll homepage<br>2. Locate Latest Uploads or Recommended section</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Section visible with listings.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Manual test pending.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C5</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-Test-Cases-Detailed.csv (C5)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        
+      </div>
+    </article>
+
+    <article class="bug-card priority-p1 status-pending"
+      data-id="BUG-HB-013"
+      data-module="Listing"
+      data-status="Pending"
+      data-priority="P1"
+      data-search="bug-hb-013 listing contact seller seller contact / call option on ad detail not verified functional c14 ">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-013</span>
+          <span class="badge module">Listing</span>
+          <span class="badge priority-p1">P1</span>
+          <span class="badge status-pending">Pending</span>
+          <span class="badge severity">Trivial</span>
+          
+        </div>
+        <h2>Seller contact / call option on ad detail not verified</h2>
+        <p class="feature">Contact seller · Functional</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Open any ad detail page<br>2. Look for contact or call button</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>Seller contact option is visible and actionable.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Manual test pending.</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>C14</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Manual</dd>
+              <dt>Evidence</dt><dd>HamroBazar-Test-Cases-Detailed.csv (C14)</dd>
+              <dt>Reported by</dt><dd>QA Team</dd>
+              <dt>Date</dt><dd>2026-06-16</dd>
+            </dl>
+          </section>
+        </div>
+        
+      </div>
+    </article>
+
+    <article class="bug-card priority-p0 status-open"
+      data-id="BUG-HB-014"
+      data-module="Global"
+      data-status="Open"
+      data-priority="P0"
+      data-search="bug-hb-014 global error boundary intermittent &quot;something went wrong — critical error occurred&quot; page functional / stability s1, c1 automated guard added in tests/10-critical-error.spec.js. if error appears, note exact url and steps; report to support@hamrobazar.com.">
+      <header class="bug-header">
+        <div class="bug-meta">
+          <span class="bug-id">BUG-HB-014</span>
+          <span class="badge module">Global</span>
+          <span class="badge priority-p0">P0</span>
+          <span class="badge status-open">Open</span>
+          <span class="badge severity">Critical</span>
+          
+        </div>
+        <h2>Intermittent &quot;Something went wrong — critical error occurred&quot; page</h2>
+        <p class="feature">Error boundary · Functional / Stability</p>
+      </header>
+      <div class="bug-body">
+        
+        <div class="grid">
+          <section>
+            <h3>Steps to reproduce</h3>
+            <p>1. Browse https://hamrobazaar.com<br>2. Navigate pages or run automated tests<br>3. Observe full-page error: &quot;Something went wrong&quot; / &quot;A critical error occurred. We apologize for the inconvenience.&quot;</p>
+          </section>
+          <section>
+            <h3>Expected</h3>
+            <p>All key pages load without generic crash/error boundary screen.</p>
+          </section>
+          <section>
+            <h3>Actual</h3>
+            <p class="actual">Users reported generic critical error page. Main routes currently load OK in automation; error may be intermittent or tied to specific actions (login, chat, certain ads).</p>
+          </section>
+          <section>
+            <h3>Details</h3>
+            <dl>
+              <dt>Test case(s)</dt><dd>S1, C1</dd>
+              <dt>Environment</dt><dd>Production — https://hamrobazaar.com</dd>
+              <dt>Browser</dt><dd>Chrome (Chromium) / Safari</dd>
+              <dt>Evidence</dt><dd>tests/10-critical-error.spec.js; user report; HamroBazar-Bug-Report.csv</dd>
+              <dt>Reported by</dt><dd>Manual QA / Playwright QA</dd>
+              <dt>Date</dt><dd>2026-06-17</dd>
+            </dl>
+          </section>
+        </div>
+        <section class="comments"><h3>Comments</h3><p>Automated guard added in tests/10-critical-error.spec.js. If error appears, note exact URL and steps; report to support@hamrobazar.com.</p></section>
+      </div>
+    </article>
+    <p class="empty" id="empty-state" hidden>No bugs match your filters.</p>
+  </main>
+
+  <p class="footer-note">Regenerate: npm run qa:bugs:view · Local server: npm run qa:bugs:serve</p>
+
+  <script>
+    const cards = [...document.querySelectorAll('.bug-card')];
+    const search = document.getElementById('search');
+    const filterModule = document.getElementById('filter-module');
+    const filterStatus = document.getElementById('filter-status');
+    const filterPriority = document.getElementById('filter-priority');
+    const emptyState = document.getElementById('empty-state');
+    const moduleChips = document.getElementById('module-chips');
+
+    function applyFilters() {
+      const q = search.value.trim().toLowerCase();
+      const mod = filterModule.value;
+      const status = filterStatus.value;
+      const priority = filterPriority.value;
+      let visible = 0;
+
+      cards.forEach((card) => {
+        const match =
+          (!q || card.dataset.search.includes(q)) &&
+          (!mod || card.dataset.module === mod) &&
+          (!status || card.dataset.status === status) &&
+          (!priority || card.dataset.priority === priority);
+
+        card.hidden = !match;
+        if (match) visible++;
+      });
+
+      emptyState.hidden = visible > 0;
+    }
+
+    [search, filterModule, filterStatus, filterPriority].forEach((el) => {
+      el.addEventListener('input', applyFilters);
+      el.addEventListener('change', applyFilters);
+    });
+
+    moduleChips.addEventListener('click', (e) => {
+      const chip = e.target.closest('.module-chip');
+      if (!chip) return;
+      moduleChips.querySelectorAll('.module-chip').forEach((c) => c.classList.remove('active'));
+      chip.classList.add('active');
+      filterModule.value = chip.dataset.module || '';
+      applyFilters();
+    });
+
+    cards.forEach((card) => {
+      card.querySelector('.bug-header').addEventListener('click', () => {
+        card.classList.toggle('expanded');
+      });
+    });
+
+    document.getElementById('expand-all').addEventListener('click', () => {
+      cards.forEach((c) => { if (!c.hidden) c.classList.add('expanded'); });
+    });
+    document.getElementById('collapse-all').addEventListener('click', () => {
+      cards.forEach((c) => c.classList.remove('expanded'));
+    });
+
+    cards.forEach((card) => {
+      if (card.dataset.priority === 'P0' && card.dataset.status === 'Open') {
+        card.classList.add('expanded');
+      }
+    });
+  </script>
+</body>
+</html>
